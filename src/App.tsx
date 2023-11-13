@@ -1,17 +1,10 @@
-import ButtonComponent from "./components/ButtonComponent";
-import Dismissive from "./components/Dismissive";
-import { useState } from "react";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 
 function App() {
-  const [show, setShow] = useState(true);
-
   return (
-    <div>
-      {show && <Dismissive close={() => setShow(false)}></Dismissive>}
-      <ButtonComponent onClick={() => setShow(!show)} color="warning">
-        Blue Button
-      </ButtonComponent>
-    </div>
+    <>
+      <Button colorScheme="blue">Button</Button>
+    </>
   );
 }
 
