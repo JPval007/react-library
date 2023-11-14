@@ -1,18 +1,18 @@
 import { Text, SimpleGrid } from "@chakra-ui/react";
-import useGames, { Platform } from "../hooks/useGames";
+import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../hooks/useGenres";
+import { GameQuery } from "../App";
 
+// This is how a senior front end developer does this, no a bunch of variables everywhere
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-export const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+export const GameGrid = ({ gameQuery }: Props) => {
   // This is my custom hook that does all the procedures
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+  const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
