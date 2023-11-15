@@ -12,3 +12,5 @@ It will help you keep your game information up to date.
 - Add a page to see upComing titles and their leaks
 - Add a community forum or something similar
 - Add a section like that page that posts game tester jobs
+- Keep track of community content and promote it
+- Mix Steam, Epic Games, YouTube, ModRinth, CurseForge, maybe Discord, Genshin Impact enterprise
