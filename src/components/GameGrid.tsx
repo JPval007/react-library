@@ -14,6 +14,9 @@ export const GameGrid = ({ gameQuery }: Props) => {
   // This is my custom hook that does all the procedures
   const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
+
+  if (error) return <Text>{error}</Text>;
+
   return (
     <>
       {error && <Text>{error}</Text>}
