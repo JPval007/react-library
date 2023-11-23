@@ -1,9 +1,12 @@
 
 
 import {useQuery} from '@tanstack/react-query';
-import apiClient, { FetchResponse } from "../services/api-client";
+import APIClient, { FetchResponse } from "../services/api-client";
 
 import genres from '../data/genres';
+
+//APIClient is a class now, that does the same logic as the hook (function) but you only call it once instead of repeating it
+const apiClient = new APIClient<Genre>('/genres');
 
 export interface Genre {
     id: number;
@@ -17,8 +20,7 @@ export interface Genre {
 
 const useGenres = () => useQuery({
     queryKey: ['genres'],
-    queryFn: ()=> apiClient
-    .get<FetchResponse<Genre>>('/genres').then(res => res.data),
+    queryFn: apiClient.getAll,
     staleTime: 24*60*60*1000, //24h
     initialData: { count: genres.length, results: genres }
 });
