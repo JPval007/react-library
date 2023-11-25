@@ -11,11 +11,14 @@ import GameHeading from "./components/GameHeading";
 
 // Query object to refactor all variables
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
+
+//Undefined: absence of a value
+//null: intentional absence of a value
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -39,8 +42,10 @@ function App() {
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
             <GenreList
-              selectedGenre={gameQuery.genre}
-              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreId={gameQuery.genreId}
+              onSelectGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </GridItem>
         </Show>
@@ -50,7 +55,7 @@ function App() {
             <Flex paddingLeft={2} marginBottom={5}>
               <Box marginRight={5}>
                 <PlatformSelector
-                  selectedPlatform={gameQuery.platform}
+                  selectedPlatform={gameQuery.platformId}
                   onSelectPlatform={(platform) =>
                     setGameQuery({ ...gameQuery, platform })
                   }
