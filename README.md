@@ -7,3 +7,4 @@ Using React Query.
 - Make the site customizable (users log in and stuff)
 - Each user can make "playlists" of their favorite games
 - Make a site that's only for upcoming projects
+- Change the name to gamelib or something similar
